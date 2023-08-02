@@ -9,13 +9,16 @@ const config = {
 };
 const alchemy = new Alchemy(config);
 
+// Address to fetch transactions from (replace with your own)
+const fromAddress = "vitalik.eth"
+
 // Main function to fetch all transactions for an address
 const main = async () => {
     try {
         // Get all transactions for an address from block 0 and store in txns
         const txns = await alchemy.core.getAssetTransfers({
         fromBlock: "0x0",
-        fromAddress: "vitalik.eth",
+        fromAddress: fromAddress,
         category: ["external", "internal", "erc20", "erc721", "erc1155"],
         });
     
